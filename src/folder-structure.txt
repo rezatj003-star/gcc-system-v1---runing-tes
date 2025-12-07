@@ -1,0 +1,200 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 5606-B3B5
+D:.
+|   api.js
+|   App.jsx
+|   folder-structure.txt
+|   index.css
+|   main.jsx
+|   ProtectedRoute.jsx
+|   
++---Collection
+|   +---components
+|   |       AgingPiutangChart.jsx
+|   |       ConsumerTable.jsx
+|   |       OutstandingChart.jsx
+|   |       PaymentDialog.jsx
+|   |       StatCard.jsx
+|   |       UangMasukChart.jsx
+|   |       
+|   +---pages
+|   |       AddConsumer.jsx
+|   |       Analytics.jsx
+|   |       BulkWhatsApp.jsx
+|   |       Dashboard.jsx
+|   |       EditConsumer.jsx
+|   |       FullConsumerDetail.jsx
+|   |       MasterCollection.jsx
+|   |       ReportModule.jsx
+|   |       
+|   \---utils
+|           collectionEngine.js
+|           formatters.js
+|           getMasterConsumers.js
+|           statusCalculator.js
+|           waTemplate.js
+|           
++---components
+|   |   BackNextHeader.jsx
+|   |   BottomNav.jsx
+|   |   ErrorBoundary.jsx
+|   |   Footer.jsx
+|   |   Header.jsx
+|   |   HorizontalNav.jsx
+|   |   StatCard.jsx
+|   |   
+|   \---brutalism
+|           BrutBottomNav.jsx
+|           BrutButton.jsx
+|           BrutCard.jsx
+|           BrutHeader.jsx
+|           BrutInput.jsx
+|           BrutPanel.jsx
+|           BrutSelect.jsx
+|           BrutStatusBadge.jsx
+|           PageHeader.jsx
+|           
++---hooks
+|       use-toast.jsx
+|       
++---Kasir
+|   +---components
+|   |   |   CashInForm.jsx
+|   |   |   CashOutForm.jsx
+|   |   |   SignatureSection.jsx
+|   |   |   TotalCalculator.jsx
+|   |   |   
+|   |   +---modal
+|   |   |       CariDataModal.jsx
+|   |   |       
+|   |   \---popup
+|   |           CashInPopup.jsx
+|   |           CashOutPopup.jsx
+|   |           TukarKwiPopup.jsx
+|   |           
+|   +---logic
+|   |       cashInLogic.js
+|   |       cashOutLogic.js
+|   |       kasirSaveLogic.js
+|   |       sharedKwitansiLogic.js
+|   |       tukarKwiLogic.js
+|   |       
+|   \---pages
+|           CariData.jsx
+|           CashIn.jsx
+|           CashInPage.jsx
+|           CashOut.jsx
+|           DashboardKasir.jsx
+|           KwitansiPage.jsx
+|           LaporanCancel.jsx
+|           LaporanCashOut.jsx
+|           LaporanKasir.jsx
+|           LaporanPage.jsx
+|           MenuUtama.jsx
+|           TukarKwitansi.jsx
+|           TukarKwitansiPage.jsx
+|           
++---layout
+|       AdminLayout.jsx
+|       
++---layouts
+|       AdminLayout.jsx
+|       ModuleLayout.jsx
+|       
++---MasterData
+|   |   MasterArsip.jsx
+|   |   MasterDashboard.jsx
+|   |   MasterDataAPI.js
+|   |   MasterDatabase.jsx
+|   |   MasterDataContext.jsx
+|   |   MasterDataRoutes.jsx
+|   |   MasterStatusUnit.jsx
+|   |   
+|   +---components
+|   |       FormDataTeknik.jsx
+|   |       FormIdentitas.jsx
+|   |       FormKewajiban.jsx
+|   |       FormKPR.jsx
+|   |       FormPenagihan.jsx
+|   |       FormPenerimaan.jsx
+|   |       FormPPJB.jsx
+|   |       FormSPH.jsx
+|   |       HorizontalNavMaster.jsx
+|   |       MasterFilter.jsx
+|   |       MasterSummaryCard.jsx
+|   |       MasterTable.jsx
+|   |       
+|   +---engine
+|   |       historiEngine.js
+|   |       kprEngine.js
+|   |       outstandingEngine.js
+|   |       penagihanEngine.js
+|   |       penerimaanEngine.js
+|   |       ppjbEngine.js
+|   |       priceEngine.js
+|   |       sphEngine.js
+|   |       timelineEngine.js
+|   |       unitStatusEngine.js
+|   |       validationEngine.js
+|   |       
+|   +---modals
+|   |       AddNewCustomerModal.jsx
+|   |       CancelCustomerModal.jsx
+|   |       EditCustomerModal.jsx
+|   |       GantiNamaModal.jsx
+|   |       PindahUnitModal.jsx
+|   |       PrintOSPopup.jsx
+|   |       UpdatePembayaranModal.jsx
+|   |       UpdatePenagihanModal.jsx
+|   |       UpdatePPJBModal.jsx
+|   |       UpdateSPHModal.jsx
+|   |       
+|   +---pages
+|   |       CancelReportPage.jsx
+|   |       MasterDataDetail.jsx
+|   |       MasterDataForm.jsx
+|   |       MasterDataList - Copy (3).jsx
+|   |       MasterDataList - Copy (4).jsx
+|   |       MasterDataList - Copy (5).jsx
+|   |       MasterDataList - Copy (6).jsx
+|   |       MasterDataList - Copy (7).jsx
+|   |       MasterDataList.jsx
+|   |       PenagihanPage.jsx
+|   |       PPJBPage.jsx
+|   |       SPHPage.jsx
+|   |       UnitStatusPage.jsx
+|   |       
+|   +---routes
+|   \---utils
+|       |   exportToExcel.js
+|       |   exportToPdf.js
+|       |   formatter.js
+|       |   
+|       \---pdfTemplates
+|               CancelReportTemplate.js
+|               OutstandingTemplate.js
+|               
++---pages
+|       Forbidden.jsx
+|       HomeMenu.jsx
+|       Login.jsx
+|       ModuleSelect.jsx
+|       NotFound.jsx
+|       UserManagement.jsx
+|       
++---services
+|       userService.js
+|       
++---styles
+|       brutalism.css
+|       
+\---utils
+        auth.js
+        codeSpitting.js
+        lazyLoad.jsx
+        pagination.jsx
+        printVisualPDF.js
+        sessionManager.js
+        storage.js
+        validation.js
+        

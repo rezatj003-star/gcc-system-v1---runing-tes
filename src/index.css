@@ -1,0 +1,538 @@
+/* ===============================
+   TAILWIND IMPORTS
+=============================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   ROOT VARIABLES – BRUTAL BRUSH THEME
+=============================== */
+@layer base {
+  :root {
+    --bb-border: 3px;
+    --bb-shadow: 4px 4px 0px #000;
+    --bb-radius: 10px;
+
+    --bb-yellow: #facc15;
+    --bb-orange: #fb923c;
+    --bb-red: #ef4444;
+    --bb-green: #22c55e;
+    --bb-blue: #3b82f6;
+
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+  }
+
+  html { @apply bg-white text-slate-900; }
+  body { @apply font-sans leading-normal text-base bg-slate-100; }
+
+  * { box-sizing: border-box; }
+
+  html, body, #root { height: 100%; margin: 0; }
+}
+
+/* ===============================
+   BRUTAL BRUSH COMPONENTS
+=============================== */
+@layer components {
+
+  /* LAYOUT */
+  .bb-layout { @apply flex h-screen bg-slate-100; }
+  .bb-sidebar {
+    @apply fixed left-0 top-0 h-full w-60 bg-slate-900 text-white
+           border-r-[var(--bb-border)] border-black shadow-[var(--bb-shadow)]
+           flex flex-col;
+  }
+  .bb-main { @apply flex-1 ml-60 flex flex-col; }
+
+  .bb-header {
+    @apply bg-white h-16 flex items-center justify-between px-4
+           border-b-[var(--bb-border)] border-black shadow-[var(--bb-shadow)]
+           sticky top-0 z-40;
+  }
+
+  .bb-content { @apply p-5 flex-1 overflow-y-auto; }
+
+  /* BUTTONS */
+  .bb-btn {
+    @apply inline-flex items-center gap-2 font-bold px-4 py-2 rounded-lg
+           border-[var(--bb-border)] border-black shadow-[var(--bb-shadow)]
+           transition-all text-sm;
+  }
+  .bb-btn:hover { @apply -translate-x-1 -translate-y-1; }
+
+  .bb-btn-primary { @apply bg-yellow-300 text-black; }
+  .bb-btn-danger { @apply bg-red-400 text-black; }
+  .bb-btn-secondary { @apply bg-slate-200 text-black; }
+  .bb-btn-dark { @apply bg-slate-900 text-white; }
+
+  .bb-btn-small { @apply px-3 py-1 text-xs; }
+
+  /* CARD */
+  .bb-card {
+    @apply bg-white p-4 rounded-xl border-[4px] border-black
+           shadow-[6px_6px_0px_#000] transition-all;
+  }
+  .bb-card:hover { @apply -translate-x-1 -translate-y-1; }
+
+  /* INPUTS */
+  .bb-input {
+    @apply w-full border-[var(--bb-border)] border-black px-3 py-2 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  /* ======================================================
+     TABLE — FINAL PROFESSIONAL (WRAP HEAD + TOP SCROLL)
+     ====================================================== */
+
+  /* Container untuk top-scroll & tabel */
+  .bb-table-container {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Scroll atas (hanya scrollbar) */
+  .bb-scroll-top {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 14px;            /* tinggi area scrollbar */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Spacer di dalam scroll-top; JS/JSX akan mengatur width sesuai tabel.
+     Jika Anda tidak pakai JS, gunakan inner div dengan style width: 'max-content' */
+  .bb-scroll-top .bb-scroll-spacer {
+    height: 1px;
+    width: 100%;
+  }
+
+  /* Wrapper tabel (scroll bawah + tampilan tabel) */
+  .bb-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;  /* hilangkan scroll vertikal */
+  }
+
+  /* Scrollbar style (atas & bawah terlihat serupa) */
+  .bb-scroll-top::-webkit-scrollbar,
+  .bb-table-wrapper::-webkit-scrollbar {
+    height: 12px;
+  }
+  .bb-scroll-top::-webkit-scrollbar-thumb,
+  .bb-table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.4);
+    border-radius: 8px;
+  }
+  .bb-scroll-top::-webkit-scrollbar-track,
+  .bb-table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Table base */
+  .bb-table {
+    width: max-content;       /* agar tabel lebarnya mengikuti konten */
+    border-collapse: collapse !important;
+    font-size: 13px;
+    table-layout: fixed;      /* untuk wrap header bekerja */
+  }
+
+  /* Header: wrap text, sticky, dan blokk warna kuning untuk kolom 1-3 */
+  .bb-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: #facc15;           /* default header kuning */
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 12px;
+    border-bottom: 4px solid #000 !important;
+    border-right: 2px solid #000;
+    white-space: normal;           /* wrap text enabled */
+    word-wrap: break-word;
+    line-height: 1.15;
+  }
+
+  /* Pastikan NO/AREA/BLOK tetap kuning (header) */
+  .bb-table thead th:nth-child(1),
+  .bb-table thead th:nth-child(2),
+  .bb-table thead th:nth-child(3) {
+    background: #facc15 !important;
+  }
+
+  /* Body cells (tanpa warna kuning) */
+  .bb-tbody td {
+    padding: 10px 12px;
+    background: #fff;           /* putih sesuai permintaan */
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    vertical-align: middle;
+    white-space: nowrap;        /* isi data tidak wrap, hanya header yang wrap */
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  /* Row striping ringan */
+  .bb-tbody tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  .bb-tbody tr:hover td {
+    background: #f1f5f9 !important;
+  }
+
+  /* Jika Anda ingin kolom tertentu punya lebar tetap, atur di sini.
+     Saya rekomendasikan minimal untuk No / Area / Blok agar rapi. */
+  .bb-table th:nth-child(1),
+  .bb-table td:nth-child(1) {
+    width: 60px; min-width: 60px; max-width: 60px;
+  }
+  .bb-table th:nth-child(2),
+  .bb-table td:nth-child(2) {
+    width: 90px; min-width: 90px; max-width: 90px;
+  }
+  .bb-table th:nth-child(3),
+  .bb-table td:nth-child(3) {
+    width: 120px; min-width: 120px; max-width: 120px;
+  }
+
+  /* Pastikan header selalu menutupi teks saat scroll */
+  .bb-table thead th {
+    background-clip: padding-box;
+    box-shadow: inset 0 -2px 0 #000; /* garis bawah kuat agar tidak terlihat tembus */
+  }
+
+  /* Jika ingin, Anda dapat non-aktifkan sticky kolom kiri (No/Area/Blok)
+     — saat ini saya biarkan tidak sticky agar layout lebih stabil. */
+  .bb-table th:first-child,
+  .bb-table td:first-child,
+  .bb-table th:nth-child(2),
+  .bb-table td:nth-child(2),
+  .bb-table th:nth-child(3),
+  .bb-table td:nth-child(3) {
+    position: static !important;
+    left: unset !important;
+    z-index: unset !important;
+  }
+
+  /* ---------- ADDED: specific helper columns ---------- */
+  /* Lebar kolom nama (lebih lebar agar tidak cepat terpotong) */
+  .bb-table th.name-col,
+  .bb-table td.name-col {
+    min-width: 260px;
+    max-width: 400px;
+  }
+
+  /* Lebar pola bayar */
+  .bb-table th.pola-col,
+  .bb-table td.pola-col {
+    min-width: 140px;
+    max-width: 220px;
+  }
+
+  /* Lebar untuk uang masuk */
+  .bb-table th.total-col,
+  .bb-table td.total-col {
+    min-width: 150px;
+    max-width: 220px;
+    text-align: right;
+  }
+
+  /* Lebar untuk tanggal pembayaran dan last payment */
+  .bb-table th.date-col,
+  .bb-table td.date-col {
+    min-width: 130px;
+    max-width: 180px;
+    text-align: center;
+  }
+
+  /* header-2row style (compact, rapi) */
+  .bb-table thead th.header-2row {
+    white-space: normal;
+    line-height: 1.05;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+/* ===============================
+   UTILITIES
+=============================== */
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* HEADER TIGHTEN (global) */
+.bb-thead th {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* Small responsive tweaks */
+@media (max-width: 1024px) {
+  .bb-table th.name-col,
+  .bb-table td.name-col {
+    min-width: 220px;
+  }
+  .bb-table th.pola-col,
+  .bb-table td.pola-col {
+    min-width: 120px;
+  }
+  .bb-table th.total-col,
+  .bb-table td.total-col {
+    min-width: 120px;
+  }
+}
+
+/* Make sure table cells remain compact vertically */
+.bb-table th, .bb-table td {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* helper: ellipsis but allow hover reveal */
+.bb-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bb-ellipsis:hover {
+  white-space: normal;
+  background: #fff;
+  z-index: 20;
+  position: relative;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.08);
+}
+
+
+
+/* ========== HIDE ELEMENTS SAAT PDF / PRINT ========== */
+
+.print-hide {
+  display: none !important;
+}
+
+@media print {
+
+  /* SEMBUNYIKAN ELEMENT BERCAP no-print */
+  .no-print {
+    display: none !important;
+  }
+
+  /* SEMBUNYIKAN NAVIGASI / HEADER */
+  #navbar,
+  nav,
+  header,
+  .bb-header,
+  .MobileNav {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* TAMPILKAN HANYA AREA PRINT */
+  body * {
+    visibility: hidden !important;
+  }
+
+  #print-area,
+  #print-area * {
+    visibility: visible !important;
+  }
+
+  #print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px !important;
+    background: white !important;
+  }
+
+  /* TABEL PRINT RAPI */
+  table, th, td {
+    border: 1px solid #000 !important;
+  }
+
+  th {
+    background: #f5f5f5 !important;
+  }
+
+  /* WARNA TETAP SAAT PRINT */
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Chrome hack untuk hilangkan URL/footer/header */
+  @page {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+}
+
+/* ===============================
+   FIX — Pastikan modal paling atas
+=============================== */
+.modal-overlay {
+  z-index: 9999 !important;
+}
+
+.modal-card {
+  z-index: 10000 !important;
+  position: relative !important;
+}
+
+/* Turunkan semua elemen sticky tabel agar tidak tembus modal */
+.bb-table thead th,
+.bb-ellipsis,
+.bb-table-wrapper,
+.bb-table-container {
+  z-index: 1 !important;
+}
+
+/* ======================================================
+   MODAL ANIMATION + BLUR EFFECT
+====================================================== */
+
+/* Overlay fade */
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal pop animation */
+@keyframes modalPop {
+  0% { opacity: 0; transform: scale(0.85) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-overlay {
+  animation: modalFade 0.25s ease-out;
+  backdrop-filter: blur(6px);
+}
+
+.modal-card {
+  animation: modalPop 0.28s ease-out;
+}
+
+/* Input with icon wrapper */
+.bb-input-wrap {
+  @apply flex items-center gap-2 border-[3px] border-black 
+         bg-white rounded-xl px-3 py-2;
+}
+
+.bb-input-wrap input,
+.bb-input-wrap select {
+  @apply flex-1 bg-transparent focus:outline-none;
+}
+
+/* Input wrapper dengan ikon */
+.bb-input-wrap {
+  @apply flex items-center gap-3 border-[3px] border-black 
+         bg-white rounded-xl px-3 py-2 shadow-[3px_3px_0px_#000];
+}
+
+.bb-input-wrap input,
+.bb-input-wrap select {
+  @apply flex-1 bg-transparent focus:outline-none font-medium;
+}
+
+/* Label */
+.bb-label {
+  @apply font-bold text-sm text-gray-800;
+}
+
+/* Section Card */
+.bb-section {
+  @apply bg-white p-5 rounded-xl border-[4px] border-black 
+         shadow-[6px_6px_0px_#000] space-y-4;
+}
+
+/* ========================== */
+/*    INPUT WRAPPER ICON      */
+/* ========================== */
+.bb-input-wrap {
+  @apply flex items-center gap-3 border-[3px] border-black 
+         bg-white rounded-xl px-3 py-2 shadow-[3px_3px_0px_#000] 
+         focus-within:border-blue-500 transition-all;
+}
+
+.bb-input-wrap input,
+.bb-input-wrap select,
+.bb-input-wrap textarea {
+  @apply flex-1 bg-transparent focus:outline-none font-medium text-sm;
+}
+
+.bb-label {
+  @apply font-bold text-sm text-gray-800;
+}
+
+/* Section Box */
+.bb-section {
+  @apply bg-white p-6 rounded-xl border-[4px] border-black 
+         shadow-[6px_6px_0px_#000] space-y-6;
+}
+
+/* Status Badge */
+.bb-status {
+  @apply px-3 py-1 rounded font-bold text-sm border-[3px] border-black
+         shadow-[2px_2px_0px_#000];
+}
+
+/* Button styles */
+.bb-btn {
+  @apply px-4 py-2 rounded-xl border-[3px] border-black 
+         font-bold shadow-[3px_3px_0px_#000];
+}
+
+.bb-btn-primary {
+  @apply bg-yellow-300 hover:bg-yellow-400;
+}
+
+.bb-btn-secondary {
+  @apply bg-gray-300 hover:bg-gray-400;
+}
+
+.bb-btn-danger {
+  @apply bg-red-500 text-white hover:bg-red-600;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .print-modal,
+  .print-modal * {
+    visibility: visible !important;
+  }
+  .print-modal {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+  /* Hilangkan overlay */
+  .modal-overlay {
+    display: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

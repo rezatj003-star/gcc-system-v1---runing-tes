@@ -1,0 +1,440 @@
+{
+  "houses": [
+    {
+      "id": "uuid-here",
+      "code": "HOU-0001",
+      "tower": "A",
+      "blok": "A-01",
+      "unit_number": "101",
+      "type": "STU",
+      "status": "available",
+      "owner_consumer_id": null,
+      "technical_status_id": "STU",
+      "price": 500000000,
+      "luas_tanah": 120,
+      "luas_bangunan": 90,
+      "lt": 2,
+      "kt": 3,
+      "km": 2,
+      "alamat_lengkap": "Jl. Contoh No. 101, Tower A, Blok A-01",
+      "metadata": {
+        "fasilitas": ["carport", "taman"],
+        "catatan": "Unit siap huni"
+      },
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z",
+      "deleted_at": null
+    }
+  ],
+
+  "banks": [
+    {
+      "id": "uuid-here",
+      "name": "Bank BCA",
+      "account_no": "1234567890",
+      "holder_name": "PT. Contoh",
+      "branch": "Jakarta Pusat",
+      "swift_code": "CENAIDJA",
+      "metadata": {
+        "contact_person": "John Doe",
+        "phone": "021-12345678"
+      },
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  ],
+
+  "products": [
+    {
+      "id": "uuid-here",
+      "code": "PROD-001",
+      "name": "Biaya Administrasi",
+      "price": 500000,
+      "type": "fee",
+      "description": "Biaya administrasi pembelian unit",
+      "isActive": true,
+      "metadata": {},
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  ],
+
+  "consumers": [
+    {
+      "id": "GCC-00001",
+      "name": "Budi Santoso",
+      "phone": "081234567890",
+      "email": "budi@example.com",
+      "birthdate": "1980-01-15",
+      "ktp_no": "3201011501800001",
+      "alamat": {
+        "jalan": "Jl. Contoh No. 123",
+        "kelurahan": "Kelurahan Contoh",
+        "kecamatan": "Kecamatan Contoh",
+        "kota": "Jakarta",
+        "provinsi": "DKI Jakarta",
+        "kode_pos": "12345"
+      },
+      "current_unit_id": "uuid-house-id",
+      "status": "active",
+      "marketing": "Arin",
+      "area": "A",
+      "blok": "A-01",
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  ],
+
+  "payments": [
+    {
+      "id": "uuid-here",
+      "consumer_id": "GCC-00001",
+      "house_id": "uuid-house-id",
+      "invoice_id": "uuid-invoice-id",
+      "amount": 5000000,
+      "method": "cash",
+      "bank_id": null,
+      "kasir_txn_id": "uuid-kasir-txn-id",
+      "invoice_no": "INV-2024-001",
+      "kwitansi_no": "KW-2024-001",
+      "note": "Pembayaran cicilan bulanan",
+      "payment_date": "2024-01-15",
+      "created_at": "2024-01-15T10:00:00Z",
+      "posted_by": "user-id"
+    }
+  ],
+
+  "kasir_transactions": [
+    {
+      "id": "uuid-here",
+      "type": "cash-in",
+      "amount": 5000000,
+      "reference_id": "uuid-payment-id",
+      "consumer_id": "GCC-00001",
+      "created_by": "user-id",
+      "created_at": "2024-01-15T10:00:00Z",
+      "payment_breakdown": {
+        "cash": 3000000,
+        "transfer": 2000000,
+        "bank_id": "uuid-bank-id"
+      },
+      "status": "posted",
+      "approval": {
+        "approved_by": null,
+        "approved_at": null,
+        "requires_approval": false
+      },
+      "note": "Pembayaran cicilan"
+    }
+  ],
+
+  "receipt_exchange": [
+    {
+      "id": "uuid-here",
+      "original_receipt_no": "KW-2024-001",
+      "new_receipt_no": "KW-2024-002",
+      "consumer_id": "GCC-00001",
+      "amount": 5000000,
+      "reason": "Kwitansi hilang",
+      "created_at": "2024-01-20T10:00:00Z",
+      "created_by": "user-id",
+      "status": "completed"
+    }
+  ],
+
+  "closing_reports": [
+    {
+      "id": "uuid-here",
+      "date": "2024-01-15",
+      "opening_balance": 10000000,
+      "total_cash_in": 25000000,
+      "total_cash_out": 5000000,
+      "physical_cash": 30000000,
+      "closing_balance": 30000000,
+      "discrepancy": 0,
+      "reconciled_by": "user-id",
+      "created_at": "2024-01-15T23:59:59Z",
+      "status": "reconciled",
+      "notes": "Closing harian normal"
+    }
+  ],
+
+  "unit_transfer_logs": [
+    {
+      "id": "uuid-here",
+      "consumer_id": "GCC-00001",
+      "from_unit_id": "uuid-house-id-1",
+      "to_unit_id": "uuid-house-id-2",
+      "effective_date": "2024-02-01",
+      "reason": "Upgrade unit",
+      "created_by": "user-id",
+      "created_at": "2024-01-25T10:00:00Z",
+      "status": "completed",
+      "approval_log": {
+        "requested_at": "2024-01-25T10:00:00Z",
+        "requested_by": "user-id",
+        "approved_at": "2024-01-26T14:00:00Z",
+        "approved_by": "admin-id",
+        "notes": "Approved - unit upgrade"
+      },
+      "transfer_fee": 0,
+      "metadata": {}
+    }
+  ],
+
+  "audit_logs": [
+    {
+      "id": "uuid-here",
+      "entity_type": "house",
+      "entity_id": "uuid-house-id",
+      "action": "update",
+      "changes": {
+        "before": {
+          "status": "available",
+          "owner_consumer_id": null
+        },
+        "after": {
+          "status": "sold",
+          "owner_consumer_id": "GCC-00001"
+        }
+      },
+      "performed_by": "user-id",
+      "ip": "192.168.1.1",
+      "user_agent": "Mozilla/5.0...",
+      "timestamp": "2024-01-15T10:00:00Z"
+    }
+  ],
+
+  "files": [
+    {
+      "id": "uuid-here",
+      "name": "Kwitansi_001.pdf",
+      "original_name": "Kwitansi_001.pdf",
+      "category": "kwitansi",
+      "linked_entity_type": "consumer",
+      "linked_entity_id": "GCC-00001",
+      "linked_payment_id": "uuid-payment-id",
+      "file_path": "/files/2024/01/kwitansi_001.pdf",
+      "file_url": "https://storage.example.com/files/kwitansi_001.pdf",
+      "file_size": 245678,
+      "mime_type": "application/pdf",
+      "tags": ["pembayaran", "januari", "cicilan"],
+      "description": "Kwitansi pembayaran cicilan bulan Januari",
+      "uploaded_by": "user-id",
+      "uploaded_at": "2024-01-15T10:00:00Z",
+      "download_count": 0,
+      "metadata": {
+        "ocr_text": null,
+        "checksum": "abc123..."
+      }
+    }
+  ],
+
+  "invoices": [
+    {
+      "id": "uuid-here",
+      "invoice_no": "INV-2024-001",
+      "consumer_id": "GCC-00001",
+      "house_id": "uuid-house-id",
+      "amount": 5000000,
+      "due_date": "2024-02-15",
+      "status": "paid",
+      "percent_paid": 100,
+      "amount_paid": 5000000,
+      "amount_remaining": 0,
+      "created_at": "2024-01-15T00:00:00Z",
+      "paid_at": "2024-01-15T10:00:00Z",
+      "metadata": {
+        "installment_number": 1,
+        "total_installments": 60
+      }
+    }
+  ],
+
+  "billing_alerts": [
+    {
+      "id": "uuid-here",
+      "invoice_id": "uuid-invoice-id",
+      "consumer_id": "GCC-00001",
+      "house_id": "uuid-house-id",
+      "alert_type": "overdue",
+      "priority": "high",
+      "message": "Invoice INV-2024-001 sudah jatuh tempo",
+      "sent_via": ["email", "in-app"],
+      "sent_at": "2024-02-16T08:00:00Z",
+      "acknowledged": false,
+      "acknowledged_at": null,
+      "created_at": "2024-02-16T08:00:00Z"
+    }
+  ],
+
+  "import_runs": [
+    {
+      "id": "uuid-here",
+      "import_type": "xlsm",
+      "file_name": "master_data_2024.xlsm",
+      "file_size": 5242880,
+      "status": "completed",
+      "total_rows": 4000,
+      "successful_rows": 3998,
+      "failed_rows": 2,
+      "errors": [
+        {
+          "row": 123,
+          "column": "code",
+          "error": "Duplicate code: HOU-0123"
+        }
+      ],
+      "started_at": "2024-01-01T08:00:00Z",
+      "completed_at": "2024-01-01T09:30:00Z",
+      "imported_by": "user-id",
+      "mapping_config": {
+        "sheet_name": "Houses",
+        "columns": {
+          "Code": "code",
+          "Tower": "tower",
+          "Unit": "unit_number"
+        }
+      }
+    }
+  ],
+
+  "consumer_name_history": [
+    {
+      "id": "uuid-here",
+      "consumer_id": "GCC-00001",
+      "old_name": "Budi Santoso",
+      "new_name": "Budi Santoso Wijaya",
+      "changed_at": "2024-02-01T10:00:00Z",
+      "changed_by": "user-id",
+      "reason": "Perubahan nama resmi"
+    }
+  ],
+
+  "house_status_history": [
+    {
+      "id": "uuid-here",
+      "house_id": "uuid-house-id",
+      "old_status": "available",
+      "new_status": "sold",
+      "old_type": "STU",
+      "new_type": "HUNI",
+      "changed_at": "2024-01-15T10:00:00Z",
+      "changed_by": "user-id",
+      "reason": "Unit terjual"
+    }
+  ],
+
+  "payment_breakdown": [
+    {
+      "id": "uuid-here",
+      "payment_id": "uuid-payment-id",
+      "invoice_id": "uuid-invoice-id",
+      "amount": 5000000,
+      "allocated_at": "2024-01-15T10:00:00Z"
+    }
+  ],
+
+  "technical_status": [
+    {
+      "id": "STU",
+      "name": "STU",
+      "description": "Siap Terjual",
+      "color": "green",
+      "isActive": true,
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "HUNI",
+      "name": "HUNI",
+      "description": "Huni",
+      "color": "blue",
+      "isActive": true,
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "RENOV",
+      "name": "RENOV",
+      "description": "Renovasi",
+      "color": "orange",
+      "isActive": true,
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "NUP",
+      "name": "NUP",
+      "description": "NUP",
+      "color": "yellow",
+      "isActive": true,
+      "created_at": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "DLL",
+      "name": "DLL",
+      "description": "Lainnya",
+      "color": "gray",
+      "isActive": true,
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  ],
+
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2024-01-01T00:00:00Z",
+    "total_houses": 1,
+    "total_consumers": 1,
+    "total_files": 1,
+    "last_import_date": null,
+    "settings": {
+      "alert_due_soon_days": 7,
+      "alert_low_payment_threshold": 50,
+      "alert_stalled_payment_days": 30,
+      "cash_out_approval_threshold": 10000000,
+      "currency": "IDR",
+      "date_format": "DD/MM/YYYY"
+    }
+  },
+
+  "_indexes": {
+    "houses": ["id", "code", "tower", "blok", "status", "technical_status_id"],
+    "consumers": ["id", "phone", "ktp_no", "current_unit_id", "area"],
+    "payments": ["id", "consumer_id", "house_id", "invoice_id", "payment_date"],
+    "invoices": ["id", "invoice_no", "consumer_id", "house_id", "due_date", "status"],
+    "kasir_transactions": ["id", "consumer_id", "type", "created_at"],
+    "billing_alerts": ["invoice_id", "alert_type", "created_at"],
+    "files": ["linked_entity_id", "category"],
+    "unit_transfer_logs": ["consumer_id", "created_at"]
+  },
+
+  "_optimizations": {
+    "json_compression": true,
+    "deduplicate_strings": true,
+    "hot_cache_keys": ["houses", "consumers", "invoices"],
+    "validate_links": true,
+    "enable_lazy_loading": true
+  },
+
+  "_partition": {
+    "houses": "tower",
+    "consumers": "area",
+    "invoices": "year(due_date)",
+    "payments": "month(payment_date)",
+    "kasir_transactions": "month(created_at)"
+  },
+
+  "_cache_rules": {
+    "houses": "cache-24h",
+    "technical_status": "cache-24h",
+    "consumers": "cache-6h",
+    "invoices": "cache-1h",
+    "payments": "no-cache",
+    "kasir_transactions": "no-cache"
+  },
+
+  "_query_hint": {
+    "getHouseDetail": ["code", "tower", "blok", "technical_status_id"],
+    "getConsumerDetail": ["id", "ktp_no", "phone", "current_unit_id"],
+    "getBillingProgress": ["house_id", "invoice_id", "percent_paid"],
+    "getKasirDailySummary": ["created_at", "type"]
+  }
+}

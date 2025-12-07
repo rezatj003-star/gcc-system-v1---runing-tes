@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "id": "super_admin",
+      "username": "superadmin",
+      "password": "RRz0085274!!",
+      "displayName": "Super Admin",
+      "email": "superadmin@greencitayamcity.co.id",
+      "role": "superadmin",
+      "isActive": true,
+      "modulePermissions": {
+        "collection": "edit",
+        "kasir": "edit",
+        "masterdata": "edit"
+      }
+    },
+    {
+      "id": "collection_1",
+      "username": "zahra",
+      "password": "BODOAMAT",
+      "displayName": "Zahra",
+      "email": "zahra@greencitayamcity.co.id",
+      "role": "collection",
+      "isActive": true,
+      "modulePermissions": {
+        "collection": "edit",
+        "kasir": "edit",
+        "masterdata": "none"
+      }
+    },
+    {
+      "id": "master_1",
+      "username": "bahtera",
+      "password": "MASTER1",
+      "displayName": "Master Data Admin",
+      "email": "master@greencitayamcity.co.id",
+      "role": "masterdata",
+      "isActive": true,
+      "modulePermissions": {
+        "collection": "view",
+        "kasir": "view",
+        "masterdata": "view"
+      }
+    },
+    {
+      "id": "viewer_1",
+      "username": "shinta",
+      "password": "VIEWER1",
+      "displayName": "Shinta",
+      "email": "viewer@greencitayamcity.co.id",
+      "role": "masterdata",
+      "isActive": true,
+      "modulePermissions": {
+        "collection": "view",
+        "kasir": "edit",
+        "masterdata": "edit"
+      }
+    },
+    {
+      "id": "Kasir_1",
+      "username": "Hadi",
+      "password": "TERSERAH",
+      "displayName": "Hadi",
+      "email": "viewer@greencitayamcity.co.id",
+      "role": "kasir",
+      "isActive": true,
+      "modulePermissions": {
+        "collection": "view",
+        "kasir": "edit",
+        "masterdata": "view"
+      }
+    }
+  ],
+  "logs": [
+    {
+      "id": "1764411114597",
+      "time": "2025-11-29T10:11:54.597Z",
+      "description": "Edit user zahra"
+    },
+    {
+      "id": "1764411915067",
+      "time": "2025-11-29T10:25:15.067Z",
+      "description": "Edit user zahra"
+    },
+    {
+      "id": "1764412168015",
+      "time": "2025-11-29T10:29:28.015Z",
+      "description": "Edit user zahra"
+    },
+    {
+      "id": "1764412557012",
+      "time": "2025-11-29T10:35:57.012Z",
+      "description": "Edit user zahra"
+    },
+    {
+      "id": "1764418775223",
+      "time": "2025-11-29T12:19:35.223Z",
+      "description": "Edit user hadi"
+    },
+    {
+      "id": "1764419031646",
+      "time": "2025-11-29T12:23:51.646Z",
+      "description": "Edit user hadi"
+    },
+    {
+      "id": "1764669631272",
+      "time": "2025-12-02T10:00:31.272Z",
+      "description": "Edit user zahra"
+    }
+  ]
+}

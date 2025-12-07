@@ -1,0 +1,204 @@
+/* --------------------------------------------------------------------
+   BRUTALISM GLOBAL THEME
+   Applies bold borders, offset shadows, strong colors, and heavy fonts.
+   -------------------------------------------------------------------- */
+
+/* Global reset */
+* {
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------------------
+    UTILITIES — reused by components everywhere
+   ------------------------------------------------------- */
+
+/* Offset shadow */
+.brut-shadow {
+  box-shadow: 4px 4px 0px #000 !important;
+}
+
+.brut-shadow-lg {
+  box-shadow: 6px 6px 0px #000 !important;
+}
+
+/* Lift effect */
+.brut-hover {
+  transition: all 0.15s ease;
+}
+
+.brut-hover:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0px #000 !important;
+}
+
+/* Borders */
+.brut-border {
+  border: 2px solid #000 !important;
+}
+
+.brut-rounded {
+  border-radius: 12px !important;
+}
+
+/* Background colors */
+.brut-yellow {
+  background-color: #fde047 !important; /* yellow-300 */
+}
+
+.brut-blue {
+  background-color: #93c5fd !important; /* blue-300 */
+}
+
+.brut-red {
+  background-color: #fca5a5 !important; /* red-300 */
+}
+
+.brut-orange {
+  background-color: #fdba74 !important; /* orange-300 */
+}
+
+.brut-green {
+  background-color: #86efac !important; /* green-300 */
+}
+
+/* -------------------------------------------------------
+    INPUTS / FORMS (shadcn overrides)
+   ------------------------------------------------------- */
+
+input,
+textarea,
+select {
+  border: 2px solid #000 !important;
+  border-radius: 10px !important;
+  box-shadow: 3px 3px 0px #000 !important;
+  background: #fff !important;
+  padding: 0.6rem !important;
+  font-size: 0.95rem !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: 4px 4px 0px #000 !important;
+}
+
+/* -------------------------------------------------------
+    BUTTONS (Strong brutalism look)
+   ------------------------------------------------------- */
+
+button,
+.btn {
+  border: 2px solid #000 !important;
+  border-radius: 12px !important;
+  box-shadow: 3px 3px 0px #000 !important;
+  background-color: #fde047 !important; /* yellow-300 */
+  padding: 0.5rem 1rem !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0px #000 !important;
+}
+
+/* Variants */
+.btn-blue {
+  background-color: #93c5fd !important;
+}
+
+.btn-red {
+  background-color: #fca5a5 !important;
+}
+
+.btn-green {
+  background-color: #86efac !important;
+}
+
+/* -------------------------------------------------------
+    CARD (shadcn Card)
+   ------------------------------------------------------- */
+
+.card,
+[data-card] {
+  border: 2px solid #000 !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  box-shadow: 4px 4px 0px #000 !important;
+  padding: 1rem !important;
+}
+
+/* -------------------------------------------------------
+    TABLE
+   ------------------------------------------------------- */
+
+table {
+  border: 2px solid #000 !important;
+  width: 100%;
+}
+
+thead th {
+  background-color: #fde047 !important;
+  border: 2px solid #000 !important;
+  padding: 0.6rem !important;
+  font-weight: 800 !important;
+}
+
+tbody td {
+  border: 2px solid #000 !important;
+  padding: 0.5rem !important;
+}
+
+/* zebra light */
+tbody tr:nth-child(even) {
+  background-color: #fff6d4 !important; /* soft pastel yellow */
+}
+
+/* -------------------------------------------------------
+    MODAL / DIALOG / SHEET (shadcn)
+   ------------------------------------------------------- */
+
+.dialog-content,
+[data-dialog-content],
+.sheet,
+[data-sheet] {
+  border: 3px solid #000 !important;
+  border-radius: 16px !important;
+  box-shadow: 6px 6px 0px #000 !important;
+  background: white !important;
+  padding: 1.2rem !important;
+}
+
+/* -------------------------------------------------------
+    TOAST / SONNER
+   ------------------------------------------------------- */
+
+.sonner-toast,
+.toast {
+  border: 2px solid #000 !important;
+  border-radius: 14px !important;
+  box-shadow: 4px 4px 0px #000 !important;
+  background: #fff !important;
+  font-weight: 700 !important;
+}
+
+/* -------------------------------------------------------
+    BADGE
+   ------------------------------------------------------- */
+
+.badge {
+  border: 2px solid #000 !important;
+  box-shadow: 2px 2px 0px #000 !important;
+  border-radius: 10px !important;
+  padding: 0.2rem 0.5rem !important;
+  font-weight: 800 !important;
+  background: #fde047 !important;
+}
+
+/* -------------------------------------------------------
+   END OF THEME
+   ------------------------------------------------------- */
